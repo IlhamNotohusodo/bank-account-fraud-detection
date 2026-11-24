@@ -1,5 +1,6 @@
 Nama    : Ilham Notohusodo
 NIM     : 24120500018   
+
 Kasus A: Deteksi penipuan pembukaan rekening bank
 
 Sebuah bank digital menerima ribuan pengajuan buka rekening online setiap hari. Sebagian kecil diajukan penipu, misalnya dengan identitas palsu atau untuk menampung uang hasil kejahatan. Tim risiko ingin setiap pengajuan baru diberi skor: seberapa mungkin pengajuan ini penipuan
@@ -20,7 +21,7 @@ Skor kemungkinan penipuan untuk tiap pengajuan rekening baru. Tujuan: tangkap pe
 `Base.csv` (Kaggle BAF, via `kagglehub`), hanya `month` 0-3: 547.975 dari 1.000.000 baris. `device_fraud_count` dibuang karena konstan (selalu 0).
 
 ## Metode
-- **Preprocessing** (satu `Pipeline`, jadi model menerima tabel mentah dan bebas kebocoran data): nilai `-1` pada kolom penanda data hilang (mis. `prev_address_months_count`, `bank_months_count`) diisi median data latih plus kolom penanda "hilang"; 5 kolom kategorikal di-encode ordinal dan dibaca sebagai kategori. `intended_balcon_amount` bernilai negatif kontinu (bukan `-1`), dibaca langsung.
+- **Preprocessing** (satu `Pipeline`, jadi model menerima tabel mentah dan bebas data leakage): nilai `-1` pada kolom penanda missing value (mis. `prev_address_months_count`, `bank_months_count`) diisi median data latih plus kolom penanda "hilang"; 5 kolom kategorikal di-encode ordinal dan dibaca sebagai kategori. `intended_balcon_amount` bernilai negatif kontinu (bukan `-1`), dibaca langsung.
 - **Model:** `HistGradientBoostingClassifier` (scikit-learn), 29 fitur; `fraud_bool` dan `month` bukan fitur. Tiga konfigurasi dibandingkan; terpilih `sedang` (31 daun, learning rate 0,05, 215 iterasi, early stopping).
 
 ## Alasan memilih
