@@ -1,3 +1,4 @@
+
 Nama    : Ilham Notohusodo
 NIM     : 24120500018   
 
@@ -33,7 +34,12 @@ Berdasarkan **waktu**, bukan acak: **latih bulan 0-1** (260.060 baris), **valida
 ## Skor di data validasi (bulan 2)
 **TPR pada FPR 5% = 53,0%** (FPR aktual 5,0%), ROC-AUC 0,882, PR-AUC 0,130, threshold 0,03008. Tiga konfigurasi memberi 52,6-53,0% (selisih di bawah kesalahan acak ±1,4 poin): setara.
 
-<img src="hasil_model/roc_validasi.png" alt="Kurva ROC validasi: AUC 0,882; TPR 0,53 pada FPR 5%" width="230"><br><em>Kurva ROC validasi; titik merah = TPR 0,53 pada FPR 5%.</em>
+
+<img width="600" height="480" alt="roc_validasi" src="https://github.com/user-attachments/assets/1b29e543-eb2e-460d-8691-b7d214a46175" />
+
+
+
+Kurva ROC validasi; titik merah = TPR 0,53 pada FPR 5%.</em>
 
 ## Hasil uji (bulan 3) dan keterbatasan
 Dengan threshold yang sama, bulan 3 memberi TPR 68,2% tetapi FPR **8,6%** (melewati 5%): pola data bergeser antarbulan, jadi threshold perlu dihitung ulang berkala. Angka resmi tetap skor validasi.
